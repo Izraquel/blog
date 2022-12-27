@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest --env node"
+    "test": "jest --env node --detectOpenHandles",
+    "start": "nodemon server.js"
   },
   "license": "MIT",
   "dependencies": {

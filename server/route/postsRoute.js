@@ -6,17 +6,23 @@ router.get('/posts', async function (req, res){
   const posts = await postsService.getPosts();
   res.json(posts);
 }); //todos os posts
-router.get('/posts/:id', async function (req, res){
-  
-}); //post especifico
+
 router.post('/posts', async function (req, res){
-  
-}); //cria 
-router.put('/posts/:id',async function (req, res){
-  
-}); //altera
+  const post = req.body;
+  const newPost = await postsService.getPosts(post);
+  res.json(newPost);
+});
+
+router.put('/posts/:id', async function (req, res){
+  const post = req.body;
+  await postsService.updatePost(req.params.id, post);
+  res.end();
+}); 
+
 router.delete('/posts/:id', async function (req, res){
-  
-}); //deleta
+  await postsService.deletePost(req.params.id);
+  res.end();
+}); 
+
 
 module.exports = router;
